@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         try {
-            AndroidGPU androidGPU = new AndroidGPU(getAssets(), "compute.glsl");
+            AndroidGPU androidGPU = new AndroidGPU(this, "compute.glsl");
 
             Double[] input = new Double[256];
             Double[] output = new Double[256];
