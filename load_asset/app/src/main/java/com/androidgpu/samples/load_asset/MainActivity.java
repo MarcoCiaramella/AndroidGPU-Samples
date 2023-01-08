@@ -23,10 +23,11 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < input.length; i++) {
                 input[i] = (double) i;
             }
-            androidGPU.run(256, 1, 1, 256, 1, 1, output, input);
-            for (double d : output) {
-                Log.i("####", Double.toString(d));
-            }
+            androidGPU.run(this, () -> {
+                for (double d : output) {
+                    Log.i("####", Double.toString(d));
+                }
+            }, 256, 1, 1, 256, 1, 1, output, input);
         } catch (Exception e) {
             e.printStackTrace();
         }
