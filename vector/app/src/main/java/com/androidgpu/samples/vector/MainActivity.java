@@ -20,16 +20,14 @@ public class MainActivity extends AppCompatActivity {
             int localSize = 256;
             int dim = 8000;
             int vecSize = 4;
-            Double[] input = new Double[dim * vecSize];
-            Double[] output = new Double[dim * vecSize];
+            Float[] input = new Float[dim * vecSize];
+            Float[] output = new Float[dim * vecSize];
 
             for (int i = 0; i < input.length; i++) {
-                input[i] = (double) i;
+                input[i] = (float) i;
             }
             androidGPU.run(this, () -> {
-                for (double d : output) {
-                    Log.i("####", Double.toString(d));
-                }
+                Log.i("####", Float.toString(output[output.length - 1]));
             }, dim, 1, 1, localSize, 1, 1, output, input);
         } catch (Exception e) {
             e.printStackTrace();
