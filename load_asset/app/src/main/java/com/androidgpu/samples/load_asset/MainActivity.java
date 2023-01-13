@@ -7,6 +7,8 @@ import android.util.Log;
 
 import com.lib.androidgpulib.AndroidGPU;
 
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -24,9 +26,7 @@ public class MainActivity extends AppCompatActivity {
                 input[i] = (double) i;
             }
             androidGPU.run(this, () -> {
-                for (double d : output) {
-                    Log.i("####", Double.toString(d));
-                }
+                Log.i("####", Arrays.toString(output));
             }, 256, 1, 1, 256, 1, 1, output, input);
         } catch (Exception e) {
             e.printStackTrace();
